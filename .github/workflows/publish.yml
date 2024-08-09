@@ -12,8 +12,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'adopt-hotspot'
-          java-version: 17
+          distribution: temurin
+          java-version: 21
 
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -25,7 +25,7 @@ jobs:
           restore-keys: ubuntu-latest-gradle-
 
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v2
+        uses: gradle/actions/wrapper-validation@v3
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
@@ -36,7 +36,7 @@ jobs:
           GPR_KEY: ${{ secrets.GPR_KEY }}
 
       - name: Add Artifacts to Github Release
-        uses: alexellis/upload-assets@0.4
+        uses: alexellis/upload-assets@0.4.1
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
