@@ -12,4 +12,4 @@ fun substituteLocal(directoryName: String, libraryName: String) {
 
 substituteLocal("ceres", "li.cil.ceres:ceres")
 
-rootProject.name = "sedna-fixed"
+rootProject.name = "sedna"
